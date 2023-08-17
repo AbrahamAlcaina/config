@@ -143,3 +143,4 @@ if [ -f '/home/abraham/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/abr
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+PATH="$PATH:/home/abraham/.dotnet/tools"
