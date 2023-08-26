@@ -158,3 +158,4 @@ if [ -f '/home/abraham/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/abr
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 PATH="$PATH:/home/abraham/.dotnet/tools"
+PATH="$PATH:/home/abraham/.cargo/bin"
