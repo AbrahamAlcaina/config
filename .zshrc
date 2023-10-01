@@ -7,6 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/home/abraham/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -78,16 +79,18 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages docker kubectl dotnet zsh-syntax-highlighting zsh-autosuggestions zsh-completions autoupdate)
+plugins=(git colored-man-pages docker kubectl dotnet zsh-syntax-highlighting zsh-autosuggestions zsh-completions autoupdate )
 
-export UPDATE_ZSH_DAYS=1
+export UPDATE_ZSH_DAYS=10
 
-alias p="pnpm"
 alias g="git"
+alias lg="lazygit"
 alias d="docker"
 alias k="kubectl"
 alias vim="nvim"
 alias vi="nvim"
+alias v="nvim"
+alias p="pnpm"
 
 # exa
 alias l="exa -lbF --git"                                               # list, size, type, git
@@ -97,14 +100,12 @@ alias la="exa -lbhHigUmuSa --time-style=long-iso --git --color-scale"  # all lis
 alias lx="exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale" # all + extended list
 
 # specialty views
-alias lS="exa -1"                                                      # one column, just names
-alias lt="exa --tree --level=2"                                        # tree
+alias lS="exa -1"                                                              # one column, just names
+alias lt="exa --tree --level=2"                                         # tree
 
 source $ZSH/oh-my-zsh.sh
 
-alias ls="exa --icons --git --all --group-directories-first"           # ls
-
-
+alias ls="exa --icons --git --all --group-directories-first"                                                 # ls
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -156,6 +157,15 @@ if [ -f '/home/abraham/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/abr
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# fix tmux
+# [ -z "$TMUX" ] && export TERM=xterm-256color
 
-PATH="$PATH:/home/abraham/.dotnet/tools"
-PATH="$PATH:/home/abraham/.cargo/bin"
+# if [ "$TMUX" = "" ]; then tmux -2; fi
+#[[ $TERM != "screen" ]] && exec tmux
+
+# bun completions
+[ -s "/home/abraham/.bun/_bun" ] && source "/home/abraham/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
